@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light container">
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/images/Logo.png" width="100" height="40" class="d-inline-block align-top ml-3" alt="Logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/posts" routerLinkActive="active">Blog</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/single-post" routerLinkActive="active">Single Post</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/pages" routerLinkActive="active">Pages</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+        <li>
+        <ng-container *ngIf="authService.isLoggedIn(); else loggedOut">
+            <a class="nav-link " (click)="logout()">Logout</a>
+          </ng-container>
+          <ng-template #loggedOut>
+            <a class="nav-link " routerLink="/login">Login</a>
+          </ng-template>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0 ">
+        <div class="input-group">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        </div>
+      </form>
+    </div>
+   
+  </nav>

@@ -1,0 +1,163 @@
+
+  
+  .container {
+    padding-top: 50px;
+  }
+  
+  
+.image-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto; 
+}
+
+.overlay-text {
+  position: absolute;
+  top: 80%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1; 
+  text-align: left;
+}
+
+
+
+
+.post-container {
+  padding: 20px;
+}
+
+.add-post-btn {
+  margin: 20px auto;
+  padding: 10px 20px; 
+  font-size: 16px;
+  background-color: rgb(3, 3, 57);
+  color: rgb(255, 255, 255);
+  border: solid 1px rgb(243, 242, 242);
+  cursor: pointer;
+  display: block;
+  border-radius: 10px;
+  width: 300px;
+
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+}
+
+.post-item {
+  flex: 1 1 calc(33.333% - 20px); 
+  max-width: calc(33.333% - 20px);
+  box-sizing: border-box; 
+}
+
+.post-box {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 350px; 
+}
+
+.post-image {
+  width: 100%;
+  height: 50%; 
+  object-fit: cover; 
+  border-bottom: 1px solid #ddd;
+}
+
+.post-content {
+  padding: 15px;
+  flex: 1; 
+}
+
+.post-text {
+  font-size: 16px;
+  margin: 10px 0;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  font-weight: bold;
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+}
+
+.author-name {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #007bff;
+}
+
+.load-more-btn {
+  margin: 10px auto;
+  padding: 10px 20px; 
+  font-size: 13px;
+  background-color: transparent;
+  color: rgb(77, 76, 76);
+  border: solid 1px rgb(243, 242, 242);
+  cursor: pointer;
+  display: block;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .post-item {
+    flex: 1 1 calc(50% - 20px); 
+    max-width: calc(50% - 20px);
+  }
+
+  .post-box {
+    height: 250px;
+  }
+
+  .post-text {
+    font-size: 14px;
+  }
+
+  .user-image {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 576px) {
+  .post-item {
+    flex: 1 1 100%; 
+    max-width: 100%;
+  }
+
+  .post-box {
+    height: 250px;
+
+  }
+  .overlay-text {
+   
+    font-size: 20px;
+   top: 50%;
+  }
+}

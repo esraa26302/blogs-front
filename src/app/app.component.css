@@ -1,0 +1,66 @@
+/* src/styles.css */
+
+.navbar {
+    background-color: transparent !important;
+  }
+  
+  .navbar-brand img {
+    margin-left: 10px;
+  }
+  
+  .input-group .input-group-append, .input-group-text {
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .input-group-text {
+    border: none;
+  }
+  
+  .navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(0, 0, 0, 0.7);
+  }
+  
+ 
+  .navbar-light .navbar-nav .nav-item.active .nav-link,
+  .navbar-light .navbar-nav .nav-link.active {
+  
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-nav {
+      text-align: center;
+    }
+  
+    .navbar-nav .nav-item .nav-link {
+      margin: 10px 0;
+    }
+  
+    .form-inline {
+      display: block;
+      text-align: center;
+    }
+  
+    .form-inline .form-control {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .form-inline .input-group .input-group-append {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .form-inline .input-group .input-group-append .input-group-text {
+      border-left: 0;
+      background-color: transparent;
+      padding: 0;
+    }
+  }
+  

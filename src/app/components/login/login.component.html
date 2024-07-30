@@ -1,0 +1,43 @@
+<div class="form-container">
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div>
+        <label for="email">Email :<span style="color: red; margin: 10px;">*</span></label>
+        <input 
+          type="email" 
+          id="email" 
+          required 
+          [(ngModel)]="loginDto.email" 
+          name="email" 
+          #email="ngModel">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.errors?.['required']" style="color: red;">Email is required.</div>
+          <div *ngIf="email.errors?.['email']" style="color: red;">Email must be a valid email address.</div>
+        </div>
+      </div>
+  
+      <div>
+        <label for="password">Password :<span style="color: red; margin: 10px;">*</span></label>
+        <input 
+          type="password" 
+          id="password" 
+          required 
+          [(ngModel)]="loginDto.password" 
+          name="password" 
+          #password="ngModel">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+          <div *ngIf="password.errors?.['required']" style="color: red;">Password is required.</div>
+        </div>
+      </div>
+  
+      <div class="register-link">
+        <a href="/register">If you do not have an account, go to Register</a>
+      </div>
+  
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  
+   
+  </div>
+  
+  
