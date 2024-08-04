@@ -1,0 +1,30 @@
+.no-scroll {
+    overflow: hidden;
+  }
+  
+  .modal.show {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.15s linear;
+  }
+  
+  .modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .modal-backdrop.show {
+    opacity: 0.5;
+  }
+  
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  

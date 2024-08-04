@@ -7,6 +7,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './components/home/home.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { UpdatePostComponent } from './components/update-post/update-post.component';
 
 const routes: Routes = [
   { path: 'users', component: UserComponent },
@@ -14,7 +16,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {path:'register',component:RegisterComponent},
   { path: 'add-post', component: AddPostComponent, canActivate: [AuthGuard] },
+  { path: 'post/:id', component: PostDetailComponent },
   { path: '', component: HomeComponent },
+  { path: 'update-post/:id', component: UpdatePostComponent },
+
  
   { path: 'login', redirectTo: '/login', pathMatch: 'full' }
 ];

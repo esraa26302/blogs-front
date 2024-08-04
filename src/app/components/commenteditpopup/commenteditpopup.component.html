@@ -1,0 +1,20 @@
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': showPopup}" (click)="closePopup()" [ngStyle]="{'display': showPopup ? 'block' : 'none', 'background-color': 'rgba(0, 0, 0, 0.5)'}">
+    <div class="modal-dialog modal-dialog-centered" role="document" (click)="$event.stopPropagation()">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Comment</h5>
+         
+            
+        </div>
+        <div class="modal-body">
+          <textarea [(ngModel)]="commentContent" rows="4" cols="50" class="form-control"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closePopup()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="saveChanges()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

@@ -27,8 +27,10 @@ export class AuthService {
     const token = localStorage.getItem('token');
     if (!token) return 0;
     const payload = JSON.parse(atob(token.split('.')[1]));
-    return payload.userId; 
+    return parseInt(payload.unique_name, 10); 
   }
+  
+  
 
   logout(): void {
     localStorage.removeItem('token');

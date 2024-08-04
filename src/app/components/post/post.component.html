@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<h4 class="text-center mt-4 mb-5">Page Tilte </h4>
+<h4 class="text-center mt-4 mb-5">Page Title</h4>
 <div class="image-container container">
   <img src="../../../assets/images/Image.png" class="img-fluid" alt="Center Image">
   <p class="overlay-text ">The Impact of Technology on the Workplace: How Technology is Changing</p>
@@ -7,10 +7,9 @@
 
 <button *ngIf="isAdminOrWriter" class="add-post-btn mx-auto mt-4 mb-3 " (click)="addPost()">Add Post</button>
 <div class="post-container container">
-  
   <div class="row">
     <div *ngFor="let post of displayedPosts" class="col-md-4 post-item">
-      <div class="post-box">
+      <div class="post-box" (click)="viewPost(post.id!)">
         <img [src]="post.image" alt="Post Image" *ngIf="post.image" class="post-image img-fluid">
         <div class="post-content">
           <p class="post-text">{{ post.content }}</p>
@@ -24,5 +23,4 @@
   </div>
   <button *ngIf="hasMorePosts" (click)="loadMorePosts()" class="load-more-btn">Load More</button>
 </div>
-
-  <app-footer></app-footer>
+<app-footer></app-footer>

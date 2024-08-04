@@ -1,0 +1,78 @@
+<app-nav></app-nav>
+
+<div class="post-details-container container">
+  <div class="post-box p-2">
+    <div *ngIf="canEditOrDelete()" class="post-actions-container">
+      <div class="more-options" (click)="toggleActions()">
+        &#x22EE;
+      </div>
+      <div [ngClass]="{'post-actions': true, 'show': showActions}">
+        <a (click)="updatePost()" class="action-link">Update</a>
+        <a (click)="deletePost()" class="action-link">Delete</a>
+      </div>
+    </div>
+    <div class="post-content">
+      <h3>{{ post?.content }}</h3>
+      <p class="post-author">
+        <img [src]="post?.userImage" alt="User Image" class="user-image">
+        <span class="author-name mx-4">Posted by {{ post?.userName }}</span>
+      </p>
+    </div>
+    <div>
+      <img [src]="post?.image" alt="Post Image" *ngIf="post?.image" class="post-image img-fluid">
+    </div>
+
+    <div class="comments-section">
+      <h3>Comments</h3>
+    
+      <div *ngFor="let comment of post?.comments" class="comment-box">
+        <div class="d-flex justify-content-between">
+      
+        <p class="comment-author">
+          <img [src]="comment.userImage" alt="User Image" class="user-image">
+          <span class="author-name m-2">{{ comment.userName }}</span>
+        </p>
+        <div *ngIf="canEditOrDeleteComment(comment)" class="comment-actions ">
+            <a (click)="editComment(comment)" class="action-link mx-2">Edit</a>
+            <a (click)="deleteComment(comment)" class="action-link mx-2">Delete</a>
+          </div>
+        </div>
+     
+        <p>{{ comment.content }}</p>
+       
+        
+        <div *ngFor="let reply of comment.replies" class="reply-box">
+            <div class="d-flex justify-content-between">
+              <p class="reply-author">
+                <img [src]="reply.userImage" alt="User Image" class="user-image">
+                <span class="author-name m-2">{{ reply.userName }}</span>
+              </p>
+              <div *ngIf="canEditOrDeleteComment(reply)" class="comment-actions">
+                <a (click)="editComment(reply)" class="action-link mx-2">Edit</a>
+                <a (click)="deleteComment(reply)" class="action-link mx-2">Delete</a>
+              </div>
+            </div>
+            <p>{{ reply.content }}</p>
+          </div>
+        <div class="reply-form">
+          <textarea [(ngModel)]="newReplyContent[comment.id]" placeholder="Write a reply..."></textarea>
+          <button (click)="addReply(comment.id)">Reply</button>
+        </div>
+      </div>
+    </div>
+    <div class="comment-form">
+      <textarea [(ngModel)]="newCommentContent" placeholder="Write a comment..."></textarea>
+      <button (click)="addComment()">Add Comment</button>
+    </div>
+  </div>
+</div>
+
+<app-commenteditpopup
+  [showPopup]="isPopupVisible" 
+  [commentContent]="currentCommentContent"
+  (onClose)="handleClosePopup()"
+  (onSave)="handleSaveChanges($event)">
+</app-commenteditpopup>
+
+<app-footer></app-footer>
+

@@ -13,6 +13,9 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { UpdatePostComponent } from './components/update-post/update-post.component';
+import { CommenteditpopupComponent } from './components/commenteditpopup/commenteditpopup.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { FooterComponent } from './components/footer/footer.component';
     AddPostComponent,
     HomeComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    PostDetailComponent,
+    UpdatePostComponent,
+    CommenteditpopupComponent
   ],
   imports: [
     BrowserModule,

@@ -31,12 +31,28 @@ export class PostService {
   }
 
   deletePost(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    const token = localStorage.getItem('token')
+    const headers = new HttpHeaders ({
+      'Authorization' :`Bearer ${token}`
+    })
+    return this.http.delete<void>(`${this.apiUrl}/${id}`,{headers});
   }
 
   updatePost(id: number, post: Post): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${id}`, post);
+    const token = localStorage.getItem('token')
+    const headers = new HttpHeaders ({
+      'Authorization' :`Bearer ${token}`
+    })
+    return this.http.put<void>(`${this.apiUrl}/${id}`, post ,{headers});
+  }
+  getPostById(id: number): Observable<Post> {
+    const token = localStorage.getItem('token')
+    const headers = new HttpHeaders ({
+      'Authorization' :`Bearer ${token}`
+    })
+    return this.http.get<Post>(`${this.apiUrl}/${id}` ,{headers});
   }
 }
+
 
 
