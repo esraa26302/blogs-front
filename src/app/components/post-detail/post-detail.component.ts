@@ -15,10 +15,13 @@ export class PostDetailComponent implements OnInit {
   showActions: boolean = false; 
   showCommentActions: { [key: number]: boolean } = {};
   newCommentContent: string = '';
+  isDeletePopupVisible: boolean = false;
   isPopupVisible = false;
   currentCommentContent = '';
   currentCommentId: number | null = null;
   newReplyContent: { [key: number]: string } = {};
+  isCommentPopupVisible: boolean = false;
+  commentToDelete: any = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -75,13 +78,22 @@ export class PostDetailComponent implements OnInit {
     }
   }
 
-  deletePost(): void {
-    if (confirm('Are you sure you want to delete this post?')) {
+  showDeletePopup(): void {
+    this.isDeletePopupVisible = true;
+  }
+
+  confirmDeletePost(): void {
+    if (this.post) {
       this.postService.deletePost(this.post.id).subscribe(
         () => this.router.navigate(['/posts']),
         error => console.error(error)
       );
     }
+    this.isDeletePopupVisible = false;
+  }
+
+  cancelDeletePost(): void {
+    this.isDeletePopupVisible = false;
   }
 
   addComment(): void {
@@ -126,15 +138,27 @@ export class PostDetailComponent implements OnInit {
     }
   }
 
+  
   deleteComment(comment: any): void {
-    if (confirm('Are you sure you want to delete this comment?')) {
-      this.commentService.deleteComment(comment.id).subscribe(
+    this.commentToDelete = comment;
+    this.isCommentPopupVisible = true;
+  }
+
+  handleCommentPopupClose() {
+    this.isCommentPopupVisible = false;
+    this.commentToDelete = null;
+  }
+
+  handleCommentDelete() {
+    if (this.commentToDelete) {
+      this.commentService.deleteComment(this.commentToDelete.id).subscribe(
         () => {
-          this.ngOnInit(); 
+          this.ngOnInit(); // Refresh the comments list
         },
         error => console.error(error)
       );
     }
+    this.handleCommentPopupClose();
   }
 
   addReply(commentId: number): void {

@@ -14,12 +14,13 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/posts" routerLinkActive="active">Blog</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/single-post" routerLinkActive="active">Single Post</a>
+        <li class="nav-item" routerLinkActive="active" *ngIf="authService.isLoggedIn()">
+            <a class="nav-link" routerLink="/profile" routerLinkActive="active">My profile</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/pages" routerLinkActive="active">Pages</a>
+        <li class="nav-item" *ngIf="authService.isUserRole(['Admin'])" routerLinkActive="active">
+          <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a>
         </li>
+        
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
         </li>

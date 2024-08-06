@@ -8,7 +8,7 @@
       </div>
       <div [ngClass]="{'post-actions': true, 'show': showActions}">
         <a (click)="updatePost()" class="action-link">Update</a>
-        <a (click)="deletePost()" class="action-link">Delete</a>
+        <a (click)="showDeletePopup()" class="action-link">Delete</a>
       </div>
     </div>
     <div class="post-content">
@@ -64,6 +64,21 @@
       <textarea [(ngModel)]="newCommentContent" placeholder="Write a comment..."></textarea>
       <button (click)="addComment()">Add Comment</button>
     </div>
+    <app-delete-confirm-popup
+    [showPopup]="isDeletePopupVisible"
+    (confirm)="confirmDeletePost()"
+    (cancel)="cancelDeletePost()">
+  </app-delete-confirm-popup>
+  <!-- Other HTML content -->
+
+<app-delete-comment-popup
+[showPopup]="isCommentPopupVisible"
+(onClose)="handleCommentPopupClose()"
+(onDelete)="handleCommentDelete()">
+</app-delete-comment-popup>
+
+<!-- Other HTML content -->
+
   </div>
 </div>
 

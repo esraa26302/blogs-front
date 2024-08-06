@@ -1,0 +1,16 @@
+<app-nav></app-nav>
+<div class="container mt-5" *ngIf="user">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 text-center profile-card mb-5">
+            <div class="profile-image-container">
+                <img *ngIf="user.image" [src]="user.image" class="img-fluid rounded-circle profile-image" alt="User Image">
+            </div>
+            <h2 class="profile-name">{{ user.name }}</h2>
+            <p class="profile-email"><strong>Email:</strong> {{ user.email }}</p>
+            <p class="profile-role"><strong>Role:</strong> {{ user.role }}</p>
+            <button class="btn btn-primary mt-3 edit-profile-btn" (click)="editProfile()">Edit Profile</button>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+

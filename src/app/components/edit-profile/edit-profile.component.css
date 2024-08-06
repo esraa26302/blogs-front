@@ -1,0 +1,33 @@
+.card {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .card-header {
+    background-color: black;
+    color: white;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  .btn-block{
+    background-color: black;
+    color: white;
+    width: 50%;
+    border: none;
+   
+  }
+  .btn-block:hover {
+    background :none;
+    border:2px solid black;
+    color: black;
+  }
+  

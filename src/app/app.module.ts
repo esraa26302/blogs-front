@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { UpdatePostComponent } from './components/update-post/update-post.component';
 import { CommenteditpopupComponent } from './components/commenteditpopup/commenteditpopup.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { DeleteConfirmPopupComponent } from './components/delete-confirm-popup/delete-confirm-popup.component';
+import { DeleteCommentPopupComponent } from './components/delete-comment-popup/delete-comment-popup.component';
+import { DeleteUserPopupComponent } from './components/delete-user-popup/delete-user-popup.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +36,21 @@ import { CommenteditpopupComponent } from './components/commenteditpopup/comment
     FooterComponent,
     PostDetailComponent,
     UpdatePostComponent,
-    CommenteditpopupComponent
+    CommenteditpopupComponent,
+    UserProfileComponent,
+    EditProfileComponent,
+    UserDetailsComponent,
+    DeleteConfirmPopupComponent,
+    DeleteCommentPopupComponent,
+    DeleteUserPopupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule ,
+    ReactiveFormsModule,
+    
   ],
   providers: [
     {
