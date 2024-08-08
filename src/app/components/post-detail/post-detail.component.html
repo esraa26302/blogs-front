@@ -15,7 +15,7 @@
       <h3>{{ post?.content }}</h3>
       <p class="post-author">
         <img [src]="post?.userImage" alt="User Image" class="user-image">
-        <span class="author-name mx-4">Posted by {{ post?.userName }}</span>
+        <span class="author-name mx-3"> {{ post?.userName }}</span>
       </p>
     </div>
     <div>
@@ -25,7 +25,9 @@
     <div class="comments-section">
       <h3>Comments</h3>
     
+    
       <div *ngFor="let comment of post?.comments" class="comment-box">
+      
         <div class="d-flex justify-content-between">
       
         <p class="comment-author">
@@ -38,9 +40,9 @@
           </div>
         </div>
      
-        <p>{{ comment.content }}</p>
-       
-        
+        <p> {{ comment.content }}</p>
+      
+     
         <div *ngFor="let reply of comment.replies" class="reply-box">
             <div class="d-flex justify-content-between">
               <p class="reply-author">
@@ -69,7 +71,7 @@
     (confirm)="confirmDeletePost()"
     (cancel)="cancelDeletePost()">
   </app-delete-confirm-popup>
-  <!-- Other HTML content -->
+  
 
 <app-delete-comment-popup
 [showPopup]="isCommentPopupVisible"
@@ -77,7 +79,7 @@
 (onDelete)="handleCommentDelete()">
 </app-delete-comment-popup>
 
-<!-- Other HTML content -->
+
 
   </div>
 </div>

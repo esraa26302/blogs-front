@@ -46,7 +46,7 @@ export class UpdatePostComponent implements OnInit {
   onSubmit(): void {
     if (this.post.content && this.post.image) {
       this.postService.updatePost(this.post.id,this.post).subscribe(
-        () => this.router.navigate(['/posts']),
+        () => this.router.navigate([`/post/${this.post.id}`]),
         error => this.errorMessage = 'Error updating post'
       );
     } else {

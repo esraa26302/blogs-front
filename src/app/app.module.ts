@@ -22,6 +22,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { DeleteConfirmPopupComponent } from './components/delete-confirm-popup/delete-confirm-popup.component';
 import { DeleteCommentPopupComponent } from './components/delete-comment-popup/delete-comment-popup.component';
 import { DeleteUserPopupComponent } from './components/delete-user-popup/delete-user-popup.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { DeleteUserPopupComponent } from './components/delete-user-popup/delete-
     UserDetailsComponent,
     DeleteConfirmPopupComponent,
     DeleteCommentPopupComponent,
-    DeleteUserPopupComponent
+    DeleteUserPopupComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

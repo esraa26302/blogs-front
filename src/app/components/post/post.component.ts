@@ -20,7 +20,8 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe(posts => {
-      this.posts = posts.sort((a, b) => new Date(b.creationDate).getTime() - new Date(a.creationDate).getTime());
+    
+      this.posts = posts.reverse(); 
       this.loadMorePosts(); 
     });
 

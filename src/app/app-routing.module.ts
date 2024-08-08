@@ -12,6 +12,7 @@ import { UpdatePostComponent } from './components/update-post/update-post.compon
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   { path: 'users', component: UserComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'profile', component: UserProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent, canActivate: [AuthGuard] },
   { path: 'user-details/:id', component: UserDetailsComponent },
+  { path: 'contact', component: ContactComponent },
 
  
   { path: 'login', redirectTo: '/login', pathMatch: 'full' }

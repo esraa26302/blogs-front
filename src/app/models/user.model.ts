@@ -32,6 +32,7 @@ export interface Comment {
   user?: User;
   post?: Post;
   replies?: Comment[];
+  parentCommentId? :number;
 }
 
 

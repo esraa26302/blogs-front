@@ -153,7 +153,7 @@ export class PostDetailComponent implements OnInit {
     if (this.commentToDelete) {
       this.commentService.deleteComment(this.commentToDelete.id).subscribe(
         () => {
-          this.ngOnInit(); // Refresh the comments list
+          this.ngOnInit(); 
         },
         error => console.error(error)
       );
